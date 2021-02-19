@@ -1,19 +1,16 @@
 package com.e.galleryapp
 
-import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Window
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
-import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_viewimage.*
-import java.net.URI
 
-class ViewimageActivity : AppCompatActivity() {
+class ViewImageActivity : AppCompatActivity() {
+    private var viewImageAdappter : ViewImageAdappter  ? =  null;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewimage)
@@ -21,8 +18,8 @@ class ViewimageActivity : AppCompatActivity() {
         //hide status bar and action bar
         supportActionBar?.hide();
         if(Build.VERSION.SDK_INT>=21){
-            val window : Window = this@ViewimageActivity.window;
-            window.statusBarColor = ContextCompat.getColor(this@ViewimageActivity,R.color.bar);
+            val window : Window = this@ViewImageActivity.window;
+            window.statusBarColor = ContextCompat.getColor(this@ViewImageActivity,R.color.bar);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())
@@ -32,11 +29,15 @@ class ViewimageActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
+
         //getdata from MainActivity
-        var imageItem : Image = intent.getSerializableExtra("image") as Image;
-        //load image from url set to view
-        Glide.with(this@ViewimageActivity)
-            .load(imageItem.url)
-            .into(viewImage)
+        var position : Int = intent.getSerializableExtra("position") as Int;
+        var imageArr  = intent.getSerializableExtra("imageArr") as ArrayList<Image>;
+
+        if (imageArr != null) {
+            viewImageAdappter = ViewImageAdappter(this,imageArr);
+            viewImageList?.adapter = viewImageAdappter;
+        }
+        viewImageList.setCurrentItem(position,false);
     }
 }

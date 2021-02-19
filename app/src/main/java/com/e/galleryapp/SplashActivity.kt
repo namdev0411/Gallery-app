@@ -1,5 +1,6 @@
 package com.e.galleryapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -50,6 +51,8 @@ class SplashActivity : AppCompatActivity() {
                     intent.putExtra("imageArr",imageArr);
                     startActivity(intent);
                     finish();
+
+
                 }
             }
     }

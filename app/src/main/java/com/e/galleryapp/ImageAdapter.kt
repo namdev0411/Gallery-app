@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 
 class ImageAdapter(var context: Context,var dataArr : ArrayList<Image>) : RecyclerView.Adapter<ImageAdapter.ItemHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
-       val itemHolder = LayoutInflater.from(parent.context).inflate(R.layout.row_item,parent,false);
+       val itemHolder = LayoutInflater.from(parent.context).inflate(R.layout.activity_row_item,parent,false);
         return ItemHolder(itemHolder);
     }
 
@@ -25,8 +25,9 @@ class ImageAdapter(var context: Context,var dataArr : ArrayList<Image>) : Recycl
             .into(holder.image);
 
         holder.image.setOnClickListener {
-            var intent = Intent(context,ViewimageActivity::class.java)
-            intent.putExtra("image",dataArr.get(position));
+            var intent = Intent(context,ViewImageActivity::class.java)
+            intent.putExtra("imageArr",dataArr);
+            intent.putExtra("position",position)
             startActivity(context,intent,null);
         }
     }

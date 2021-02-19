@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewimageActivity">
-    <ImageView
-        android:id="@+id/viewImage"
+    tools:context=".ViewImageActivity">
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewImageList"
         android:scaleType="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

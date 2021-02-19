@@ -1,14 +1,8 @@
 package com.e.galleryapp
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.provider.ContactsContract
-import android.util.Log
 import android.view.Window
-import android.widget.LinearLayout
 import android.widget.Toast
 
 import androidx.appcompat.app.AppCompatActivity
@@ -16,10 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity() {
     private var recyclerView: RecyclerView ? = null;
