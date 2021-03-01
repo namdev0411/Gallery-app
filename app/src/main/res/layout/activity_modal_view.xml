@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/layout_modal_radius"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:padding="50dp"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chooseImage"
+        android:text="Choose from gallery"
+        android:layout_marginBottom="25dp"
+        android:textSize="25dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/openCamera"
+        android:text="Open camera"
+        android:layout_marginLeft="-38dp"
+        android:textSize="25dp"
+        android:layout_gravity="center"
+        />
+</LinearLayout>
